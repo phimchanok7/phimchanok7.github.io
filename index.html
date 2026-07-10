@@ -3,305 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phimchanok | Portfolio</title>
+    <title>Phimchanok Portfolio</title>
     <style>
-        /* Modern Reset & Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --dark: #2d3436;
-            --light: #f9f9f9;
-            --text: #636e72;
+            font-family: 'Merriweather , Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: #111111;
+            color: #2c3e50;
             line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
+        header {
+            background: #aa1128;
+            color: #000000;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 10%;
-            background: #fff;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            z-index: 100;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        nav .logo {
+
+        .navbar h1 {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
         }
-        nav ul {
-            display: flex;
+
+        .nav-links {
             list-style: none;
+            display: flex;
         }
-        nav ul li {
+
+        .nav-links li {
             margin-left: 2rem;
         }
-        nav ul li a {
+
+        .nav-links a {
+            color: #fff;
             text-decoration: none;
-            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
-        nav ul li a:hover {
-            color: var(--primary);
+
+        .nav-links a:hover {
+            color: #b7b7b5;
         }
 
-        /* Hero Section */
-        header {
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('IMG_20260707_233410_247.jpg') no-repeat center center/cover;
+            height: 60vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
-            padding: 5rem 10%;
-            min-height: 80vh;
-            background: linear-gradient(135deg, #fff 60%, var(--secondary) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 0 1rem;
         }
-        .hero-text h1 {
-            font-size: 3.5rem;
+
+        .hero h2 {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
-        .hero-text h1 span {
-            color: var(--primary);
-        }
-        .hero-text p {
+
+        .hero p {
             font-size: 1.2rem;
-            color: var(--text);
             margin-bottom: 2rem;
-            max-width: 500px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: transform 0.3s, background 0.3s;
-        }
-        .btn:hover {
-            background-color: #5b4cc4;
-            transform: translateY(-2px);
-        }
-        .hero-img img {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 8px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Sections General styling */
+        .btn {
+            display: inline-block;
+            background: #333333;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #C8102E;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
         section {
-            padding: 5rem 10%;
+            margin-bottom: 4rem;
         }
-        .section-title {
+
+        section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
             position: relative;
+            color: #eaeaea;
         }
-        .section-title::after {
+
+        section h3::after {
             content: '';
             display: block;
             width: 50px;
-            height: 5px;
-            background-color: var(--primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            height: 3px;
+            background: #888888;
+            margin: 0.5rem auto 0 auto;
         }
 
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        .skill-card {
+        .about-content {
             background: #fff;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-        .skill-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 60%;
+            margin: 0 auto;
         }
 
-        /* Projects Section */
-        .project-grid {
+        .sop-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 70%;
+            margin: 0 auto;
+         }
+
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+
         .project-card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
-        .project-img {
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
             height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
+            object-fit: cover;
         }
+
         .project-info {
             padding: 1.5rem;
         }
-        .project-info h3 {
+
+        .project-info h4 {
             margin-bottom: 0.5rem;
         }
+
         .project-info p {
-            color: var(--text);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: #666;
             margin-bottom: 1rem;
         }
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-        }
 
-        /* Contact Section */
-        #contact {
-            background-color: #fff;
+        .contact-info {
             text-align: center;
-        }
-        .contact-details {
-            margin-top: 2rem;
-            font-size: 1.1rem;
-        }
-        .contact-details p {
-            margin: 0.5rem 0;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 50%;
+            margin: 0 auto;
         }
 
-        /* Footer */
         footer {
-            background-color: var(--dark);
+            background: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
+            padding: 1.5rem 0;
+            margin-top: 4rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 2rem;
+            .navbar {
+                flex-direction: column;
             }
-            .hero-text h1 {
-                font-size: 2.5rem;
+            .nav-links {
+                margin-top: 1rem;
             }
-            .hero-img img {
-                width: 250px;
-                height: 250px;
-                margin-bottom: 2rem;
+            .nav-links li {
+                margin: 0 1rem;
             }
-            nav ul {
-                display: none; /* Simplification for code size, can add burger menu if needed */
+            .hero h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Phimchanok.</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header id="about">
-        <div class="hero-text">
-            <h1>Hi, I'm <span>Phimchanok</span></h1>
-            <p>I am a passionate Developer / Designer based in Thailand. I love creating beautiful, user-friendly digital experiences that solve real-world problems.</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-        </div>
-        <div class="hero-img">
-            <img src="https://via.placeholder.com/350" alt="Phimchanok's Portrait">
-        </div>
+    <header>
+        <nav class="navbar">
+            <h1> Phimchanok </h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#Sop">Sop</a></li>            </ul>
+        </nav>
     </header>
 
-    <section id="skills">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Frontend</h3>
-                <p>HTML, CSS, JavaScript, React</p>
-            </div>
-            <div class="skill-card">
-                <h3>Backend</h3>
-                <p>Node.js, Express, Python</p>
-            </div>
-            <div class="skill-card">
-                <h3>Design</h3>
-                <p>UI/UX, Figma, Adobe XD</p>
-            </div>
-        </div>
+    <section class="hero">
+        <h2>พิมชนก เจริญสุขชุติกานต์</h2>
+        <p> เลขที่7 ม.6/3 สายการโรงแรม <i class="fa-solid fa-gear"></i> </p>
+        <a href="#projects" class="btn">View My Work</a>
     </section>
 
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-img">Project Image Placeholder</div>
-                <div class="project-info">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A fully responsive e-commerce web application with cart features and secure checkout integrations.</p>
-                    <a href="#" class="project-link">View Project &rarr;</a>
+    <div class="container">
+        <section id="about">
+            <h3> Who Am I? </h3>
+            <div class="about-content">
+                <p> ดอกไม้แต่ละชนิดมีฤดูกาลเบ่งบานเป็นของตัวเอง </p>
+            </div>
+        </section>
+        <div class="container">
+        <section id="sop">
+            <h3>Sop</h3>
+            <div class="sop-content">
+                <p> ข้าพเจ้า นางสาวพิมชนก เจริญสุขชุติกานต์ กำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6 จากโรงเรียนเซนต์โยเซฟทิพวัล มีความประสงค์ที่จะเข้าศึกษาต่อในระดับอุดมศึกษา ณ มหาวิทยาลัยศรีนครินทรวิโรฒ คณะมนุษยศาสตร์ สาขาวิชาภาษาอังกฤษ เนื่องจากมีความสนใจและความมุ่งมั่นในด้านภาษาอังกฤษมาอย่างต่อเนื่องตลอดระยะเวลาที่ศึกษา ข้าพเจ้าให้ความสำคัญกับการพัฒนาทักษะภาษาอังกฤษทั้งในด้านการฟัง พูด อ่าน และเขียน อีกทั้งยังสนใจในการสื่อสารกับผู้อื่นจากหลากหลายวัฒนธรรม ภาษาอังกฤษไม่เพียงเป็นวิชาที่ข้าพเจ้าชื่นชอบ แต่ยังเป็นเครื่องมือสำคัญที่ช่วยเปิดโอกาสในการเรียนรู้โลกกว้าง และสร้างความเข้าใจระหว่างผู้คนนอกจากนี้ ข้าพเจ้ายังมีความสนใจในด้านการโรงแรมและงานบริการ ซึ่งเป็นสายงานที่ต้องใช้ทักษะภาษาอังกฤษเป็นอย่างมาก ข้าพเจ้ามองว่าการได้ศึกษาต่อในสาขาวิชาภาษาอังกฤษจะช่วยเสริมสร้างศักยภาพในการสื่อสาร และสามารถนำไปประยุกต์ใช้ในสายอาชีพที่เกี่ยวข้องกับการบริการ การท่องเที่ยว และการทำงานในระดับนานาชาติได้อย่างมีประสิทธิภาพเหตุผลที่ข้าพเจ้าเลือกมหาวิทยาลัยศรีนครินทรวิโรฒ เนื่องจากเป็นสถาบันที่มีชื่อเสียงด้านการผลิตบัณฑิตที่มีคุณภาพ มีหลักสูตรที่เน้นทั้งความรู้ทางวิชาการและการนำไปใช้จริง อีกทั้งยังส่งเสริมให้นิสิตมีทักษะการคิดวิเคราะห์และการสื่อสารอย่างเป็นระบบ ซึ่งสอดคล้องกับเป้าหมายของข้าพเจ้าในอนาคต ข้าพเจ้ามุ่งหวังที่จะนำความรู้และทักษะที่ได้รับไปพัฒนาตนเองให้เป็นบุคลากรที่มีความสามารถด้านภาษา สามารถทำงานในสายงานที่เกี่ยวข้องกับการสื่อสารระดับสากล และเป็นส่วนหนึ่งในการสร้างภาพลักษณ์ที่ดีให้กับองค์กรและประเทศ
+
+ข้าพเจ้าหวังเป็นอย่างยิ่งว่าจะได้รับโอกาสในการเข้าศึกษาในคณะมนุษยศาสตร์ สาขาวิชาภาษาอังกฤษ มหาวิทยาลัยศรีนครินทรวิโรฒ เพื่อพัฒนาศักยภาพของตนเองและก้าวไปสู่เป้าหมายในอนาคต
+
+ขอขอบพระคุณเป็นอย่างสูงสำหรับการพิจารณาใบสมัครของข้าพเจ้า </p>
+            </div>
+        </section>
+        <section id="projects">
+            <h3> Projects </h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Project One Title</h4>
+                        <p> coming soon </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Project Two Title</h4>
+                        <p> coming soon</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h4>Project Three Title</h4>
+                        <p> coming soon </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-img">Project Image Placeholder</div>
-                <div class="project-info">
-                    <h3>UI Design System</h3>
-                    <p>A clean, minimalist mobile app user interface concept focusing on intuitive UX workflows.</p>
-                    <a href="#" class="project-link">View Project &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities.</p>
-        <div class="contact-details">
-            <p><strong>Email:</strong> phimchanok@example.com</p>
-            <p><strong>Location:</strong> Bangkok, Thailand</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Phimchanok. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+        <section id="contact">
+            <h3> Let's Connect </h3>
+            <div class="contact-info">
+                <p> Contact information coming shortly. <p>
